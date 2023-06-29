@@ -15,8 +15,7 @@ const EditPage = () => {
             alert('El nombre del género es requerido');
             return;
         }
-        axios
-            .put("http://localhost:8000/genero/" + id, {
+        axios.put("http://localhost:8000/genero/" + id, {
                 nombre: nombreGenero
             })
             .then((response) => {

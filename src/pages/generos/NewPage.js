@@ -12,8 +12,7 @@ const NewPage = () => {
             alert('El nombre del género es requerido');
             return;
         }
-        axios
-            .post("http://localhost:8000/genero", {
+        axios.post("http://localhost:8000/genero", {
                 nombre: nombreGenero
             })
             .then((response) => {
