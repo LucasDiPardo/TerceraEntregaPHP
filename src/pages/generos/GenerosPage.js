@@ -17,7 +17,7 @@ const GenerosPage = () => {
             .catch((error) => {
                 console.log("Error:", error);
             });
-    }, [generos]);
+    }, []);
 
     const eliminarGenero = (id) => {
         axios

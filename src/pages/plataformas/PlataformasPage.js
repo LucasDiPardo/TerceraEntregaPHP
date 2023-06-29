@@ -17,7 +17,7 @@ const PlataformasPage = () => {
             .catch((error) => {
                 console.log("Error:", error);
             });
-    }, [plataformas]);
+    }, []);
 
     const eliminarPlataformas = (id) => {
         axios
