@@ -23,8 +23,9 @@ const PlataformasPage = () => {
         axios
             .delete("http://localhost:8000/plataforma/" + id)
             .then((response) => {
+                const plataformasFilter = plataformas.filter((plataforma)=> plataforma.id!==id);
+                setPlataformas(plataformasFilter);
                 alert("Plataforma eliminado");
-                //console.log("Plataforma eliminado:", response.data);
             })
             .catch((error) => {
                 alert("Comprueba que la plataforma no este siendo utilizada por un juego");

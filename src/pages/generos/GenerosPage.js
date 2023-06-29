@@ -23,7 +23,8 @@ const GenerosPage = () => {
         axios
             .delete("http://localhost:8000/genero/" + id)
             .then((response) => {
-                //console.log("Genero eliminado:", response.data);
+                const generosFilter = generos.filter((genero)=> genero.id!==id);
+                setGeneros(generosFilter);
                 alert("Genero eliminado");
             })
             .catch((error) => {
