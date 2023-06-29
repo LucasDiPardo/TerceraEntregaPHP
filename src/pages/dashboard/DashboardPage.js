@@ -25,7 +25,7 @@ const DashboardPage = () =>{
             console.log('Error:', error);
         });
         
-        // Consulta para obtener los géneros
+        
         axios.get('http://localhost:8000/generos')
         .then(response => {
             setGeneros(response.data);
@@ -34,7 +34,7 @@ const DashboardPage = () =>{
             console.log('Error:', error);
         });
 
-        // Consulta para obtener las plataformas
+        
         axios.get('http://localhost:8000/plataformas')
         .then(response => {
             setPlataformas(response.data);
@@ -64,24 +64,24 @@ const DashboardPage = () =>{
             const juegosCopia = juegos.slice();
             
 
-            //filtrar por nombre
+            //filtro por nombre
             const juegosFiltradosPorNombre = juegosCopia.filter((juego) => {
             return juego.nombre_juego.toLowerCase().includes(nombreFiltro.toLowerCase());
             });
 
-            // Filtrar por género
+            // filtro por género
             const juegosFiltradosPorGenero = generoFiltro
             ? juegosFiltradosPorNombre.filter((juego) => juego.id_genero === Number(generoFiltro))
             : juegosFiltradosPorNombre;
 
 
-            //filtrar por plataforma
+            // filtro por plataforma
             const juegosFiltradosPorPlataforma = plataformaFiltro
             ? juegosFiltradosPorGenero.filter((juego) => juego.id_plataforma === Number(plataformaFiltro))
             : juegosFiltradosPorGenero;
             console.log(plataformaFiltro)
             
-            // Ordenar
+            // orden
             let juegosFiltrados;
             if (ordenFiltro === "ASC") {
                 juegosFiltrados = juegosFiltradosPorPlataforma.sort((a, b) => a.nombre_juego.localeCompare(b.nombre_juego));
@@ -108,10 +108,10 @@ const DashboardPage = () =>{
             <main>
                 <h1 className="texto text-center">Lista De Juegos</h1>
                 <form>
-                    {/* Input de filtro por nombre */}
+                    
                     <input className="form" type="text" value={nombreFiltro} onChange={handleNombreFiltroChange} />
 
-                    {/* Select de filtro por género */}
+                    
                     <select value={generoFiltro} className="form" onChange={handleGeneroFiltroChange}>
                         <option value="">Todos los géneros</option>
                             {generos.map(genero => (
@@ -119,7 +119,7 @@ const DashboardPage = () =>{
                         ))}
                     </select>
 
-                    {/* Select de filtro por plataforma */}
+                    
                     <select value={plataformaFiltro} className="form" onChange={handlePlataformaFiltroChange}>
                         <option value="">Todas las plataformas</option>
                             {plataformas.map(plataforma => (
@@ -127,7 +127,7 @@ const DashboardPage = () =>{
                         ))}
                     </select>
 
-                    {/* Select de filtro de orden */}
+                    
                     <select value={ordenFiltro} className="form" onChange={handleOrdenFiltroChange}>
                         <option value="">Ordenar por</option>
                         <option value="ASC">Nombre ascendente</option>

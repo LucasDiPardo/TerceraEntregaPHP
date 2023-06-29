@@ -16,7 +16,6 @@ body {
 
 footer {
     height: 90px;
-    /* altura del footer */
     position: relative;
     bottom: 0;
     width: 100%;
@@ -104,5 +103,5 @@ p {
 }
 
 .full-height-container {
-    min-height: 70vh; /* Establece una altura mínima del 100% del viewport */
+    min-height: 70vh; 
   }
